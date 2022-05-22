@@ -40,6 +40,7 @@ for i in range(n):
                 cnt += 1
                 break
             else:
-                alphabet[ord(word[a])] += 1
+                continue
+        alphabet[ord(word[a])] += 1
 
 print(n-cnt)
