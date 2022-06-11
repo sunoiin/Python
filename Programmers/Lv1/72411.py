@@ -8,13 +8,15 @@ def solution(orders, course):
         menu_dict = dict()
         # print(f"{c}개")
         for order in orders:
-            # i보다 적게 주문하면 패스
+            # 만약 주문한 메뉴 수가 코스 메뉴 수보다 적을 경우 패스
             if len(order) < c:
                 continue
-            # i개 조합 만들기 dict로
+            # 단품 c개로 구성된 코스요리의 조합 구하기
             menu_comb = list(combinations(order, c))
+
             for i in menu_comb:
                 comb = "".join(sorted(i))
+                # 각 사람이 주문한 코스요리 조합 더하기
                 if comb in menu_dict:
                     menu_dict[comb] += 1
                 else:
@@ -23,6 +25,7 @@ def solution(orders, course):
         # print(menu_dict)
 
         max_value = 0
+        단품 c개로 구성된 코스요리 중 최다 주문 수
         for key, value in menu_dict.items():
             if int(value) > max_value:
                 max_value = int(value)
