@@ -25,16 +25,19 @@ def solution(orders, course):
         # print(menu_dict)
 
         max_value = 0
-        단품 c개로 구성된 코스요리 중 최다 주문 수
+        # 단품 c개로 구성된 코스요리 중 최다 주문 조합 구하기
         for key, value in menu_dict.items():
             if int(value) > max_value:
                 max_value = int(value)
 
+        # 만약 최다 주문이 2보다 작을 경우 무시
+        # 최다 주문 조합을 코스요리로 구성한다.
         for key, value in menu_dict.items():
             if value < 2:
                 continue
             elif value == max_value:
                 answer.append(key)
+
         answer.sort()
     return answer
 
