@@ -1,7 +1,4 @@
 # . 평지 F 숲 # 강
-from math import dist
-
-
 def solution(grid, k):
     answer = -1
     new_grid = [list(grid[i]) for i in range(len(grid))]
