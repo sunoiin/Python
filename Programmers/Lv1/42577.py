@@ -1,3 +1,18 @@
+### 대표답안 ###
+def solution(phone_book):
+    # 어떤 번호가 다른 번호의 접두어인 경우가 있으면 False / 없으면 True
+
+    phone_book.sort()
+    # 문자열의 같은 자리에서 아스키코드 순으로 정렬된다.
+    # ['119', '97674223', '1195524421'] -> ['119', '1195524421', '97674223']
+
+    for i, j in zip(phone_book, phone_book[1:]):
+        # 뒤의 번호가 앞 번호로 시작하면, 접두어가 존재한다.
+        if j.startswith(i):
+            return False
+
+    return True
+
 # def solution(phone_book):
 #     # 어떤 번호가 다른 번호의 접두어인 경우가 있으면 False
 #     # 없으면 True
@@ -17,21 +32,6 @@
 #                     return False
 #     # print(phone_book)
 #     return True
-
-### 대표답안 ###
-def solution(phone_book):
-    # 어떤 번호가 다른 번호의 접두어인 경우가 있으면 False / 없으면 True
-
-    phone_book.sort()
-    # 문자열의 같은 자리에서 아스키코드 순으로 정렬된다.
-    # ['119', '97674223', '1195524421'] -> ['119', '1195524421', '97674223']
-
-    for i, j in zip(phone_book, phone_book[1:]):
-        # 뒤의 번호가 앞 번호로 시작하면, 접두어가 존재한다.
-        if j.startswith(i):
-            return False
-
-    return True
 
 
 print(solution(["119", "97674223", "1195524421"]))  # False
